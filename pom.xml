@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example.spring.security</groupId>
 	<artifactId>demo.spring.security</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>demo.spring.security</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -63,6 +63,12 @@
 	</dependencies>
 
 	<build>
+<!--		<plugin>-->
+<!--			<groupId>org.apache.maven.plugins</groupId>-->
+<!--			<artifactId>maven-jar-plugin</artifactId>-->
+<!--			-->
+<!--		</plugin>-->
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -12,7 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 @RequiredArgsConstructor
-public class Application implements CommandLineRunner {
+public class Application implements CommandLineRunner{
 
 	private final UserRepository repository;
 
@@ -23,13 +23,21 @@ public class Application implements CommandLineRunner {
 	public void run(String... args){
 		User admin = repository.findByRole(Role.ADMIN);
 		if(null == admin){
-			User user = User.builder()
-					.firstname("admin")
-					.lastname("admin")
-					.email("admin@gmail.com")
-					.role(Role.ADMIN)
-					.password(new BCryptPasswordEncoder().encode("admin"))
-					.build();
+			User user = new User();
+
+			user.setEmail("admin@gmail.com");
+			user.setFirstname("admin");
+			user.setLastname("admin");
+			user.setRole(Role.ADMIN);
+			user.setPassword(new BCryptPasswordEncoder().encode("admin"));
+
+//					User.builder()
+//					.firstname("admin")
+//					.lastname("admin")
+//					.email("admin@gmail.com")
+//					.role(Role.ADMIN)
+//					.password(new BCryptPasswordEncoder().encode("admin"))
+//					.build();
 			repository.save(user);
 		}
 	}
